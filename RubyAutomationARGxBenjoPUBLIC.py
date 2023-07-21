@@ -661,8 +661,8 @@ async def abs(ctx):
     with open("settings.json", "r") as f:
         settings = json.load(f)
 
-    settings["MISC"]["BUY_DEBOUNCE"] = 0.1
-    settings['MISC']['WATCHER']['SCAN_SPEED'] = 0.87 
+    settings["MISC"]["BUY_DEBOUNCE"] = 0.95
+    settings['MISC']['WATCHER']['SCAN_SPEED'] = 0.8 
     settings['MISC']['AUTOSEARCH']['ENABLE'] = True
   
     with open("settings.json", "w") as f:
@@ -670,7 +670,7 @@ async def abs(ctx):
 
     embed = Embed(
         title="Success!",
-        description=f"### Changes were made to your sniper: \n**Buy Debounce:** \n>new Buy Debounce `Arg's and Benjo's Fast Autosearch Methode` \n**Scan Speed:** \n>new Scan Speed `Arg's and Benjo's Fast Autosearch Methode` \n**Autosearch:** \n>Connected: `True`",
+        description=f"### Changes were made to your sniper: \n**Buy Debounce:** \n> new Buy Debounce `Arg's and Benjo's Fast Autosearch Methode` \n**Scan Speed:** \n> new Scan Speed `Arg's and Benjo's Fast Autosearch Methode` \n**Autosearch:** \n> Connected: `True`",
         color=Colour.from_rgb(255, 182, 193),
     )
     embed.set_thumbnail(url="https://tenor.com/view/byuntear-sad-sad-cat-cat-meme-gif-25617057")
@@ -682,24 +682,24 @@ async def abs(ctx):
     else:
         print("Error while trying to restart mewt after updating the buy debounce & speed.")
 
-# legacy watcher mode
-@bot.command(name="lsm")
+# arg and benjo snipe mode 2 command
+@bot.command(name="abs")
 @is_owner()
-async def lsm(ctx):
+async def abs(ctx):
 
     with open("settings.json", "r") as f:
         settings = json.load(f)
 
-    settings["MISC"]["BUY_DEBOUNCE"] = 0.1
-    settings['MISC']['WATCHER']['SCAN_SPEED'] = 0.2 
-    settings['MISC']['AUTOSEARCH']['ENABLE'] = False
+    settings["MISC"]["BUY_DEBOUNCE"] = 0.9
+    settings['MISC']['WATCHER']['SCAN_SPEED'] = 0.85 
+    settings['MISC']['AUTOSEARCH']['ENABLE'] = True
   
     with open("settings.json", "w") as f:
         json.dump(settings, f, indent=4)
 
     embed = Embed(
         title="Success!",
-        description=f"### Changes were made to your sniper: \n**Buy Debounce:** \n>new Buy Debounce `Arg's and Benjo'Legacy Watcher Methode` \n**Scan Speed:** \n>new Scan Speed `Arg's and Benjo's Legacy Watcher Methode` \n**Autosearch:** \n>Connected: `False`",
+        description=f"### Changes were made to your sniper: \n**Buy Debounce:** \n> new Buy Debounce `Arg's and Benjo's Fast Autosearch Methode` \n**Scan Speed:** \n> new Scan Speed `Arg's and Benjo's Fast Autosearch Methode` \n**Autosearch:** \n> Connected: `True`",
         color=Colour.from_rgb(255, 182, 193),
     )
     embed.set_thumbnail(url="https://tenor.com/view/byuntear-sad-sad-cat-cat-meme-gif-25617057")
@@ -710,6 +710,36 @@ async def lsm(ctx):
         print("Succesfully restarted mewt after updating the buy debounce & speed.")
     else:
         print("Error while trying to restart mewt after updating the buy debounce & speed.")
+
+# arg and benjo snipe mode 3 command
+@bot.command(name="abs")
+@is_owner()
+async def abs(ctx):
+
+    with open("settings.json", "r") as f:
+        settings = json.load(f)
+
+    settings["MISC"]["BUY_DEBOUNCE"] = 0.8
+    settings['MISC']['WATCHER']['SCAN_SPEED'] = 0.9 
+    settings['MISC']['AUTOSEARCH']['ENABLE'] = True
+  
+    with open("settings.json", "w") as f:
+        json.dump(settings, f, indent=4)
+
+    embed = Embed(
+        title="Success!",
+        description=f"### Changes were made to your sniper: \n**Buy Debounce:** \n> new Buy Debounce `Arg's and Benjo's Fast Autosearch Methode` \n**Scan Speed:** \n> new Scan Speed `Arg's and Benjo's Fast Autosearch Methode` \n**Autosearch:** \n> Connected: `True`",
+        color=Colour.from_rgb(255, 182, 193),
+    )
+    embed.set_thumbnail(url="https://tenor.com/view/byuntear-sad-sad-cat-cat-meme-gif-25617057")
+    embed.set_footer(text="MODIFIED BY: ARG and real_benjosnipesthis")
+    await ctx.send(embed=embed)
+
+    if await restart_main_py():
+        print("Succesfully restarted mewt after updating the buy debounce & speed.")
+    else:
+        print("Error while trying to restart mewt after updating the buy debounce & speed.")
+
 
 # buy debounce command
 @bot.command(name="buy_debounce")
@@ -761,7 +791,7 @@ async def vcc(ctx):
         title="RubyAutomation Custom Commands",
         color=discord.Color.from_rgb(65,105,225)
     )
-    embed.add_field(name=f"Custom Commands:", value=f">** {prefix}abs** `-- puts ur sniper into Benjo's and Arg's normal snipe mode` \n>**{prefix}lsm** `puts ur sniper into Benjo's and Arg's legacy watcher mode`", inline=False)
+    embed.add_field(name=f"Custom Commands:", value=f">** {prefix}abs(2,3)** `-- puts ur sniper into Benjo's and Arg's normal snipe mode (2,3)` ", inline=False)
     embed.set_thumbnail(url="https://media.tenor.com/_hUq1BSUsiMAAAAC/cat-cute.gif")
     embed.set_footer(text="MODIFIED BY: ARG and real_benjosnipesthis")
     await ctx.send(embed=embed)
