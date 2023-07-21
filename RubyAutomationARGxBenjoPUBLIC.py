@@ -571,60 +571,6 @@ async def maxbuy(ctx, new_maxbuy: str):
     else:
             print("Error while trying to restart mewt after updating the MAX_BUY_AMOUNT.")
 
-# fast snipe but with less letters so it makes it fast command
-@bot.command(name="fs")
-@is_owner()
-async def fs(ctx):
-
-    with open("settings.json", "r") as f:
-        settings = json.load(f)
-
-    settings["MISC"]["BUY_DEBOUNCE"] = 0.1
-    settings['MISC']['WATCHER']['SCAN_SPEED'] = 0.1 
-    settings['MISC']['AUTOSEARCH']['ENABLE'] = False
-  
-    with open("settings.json", "w") as f:
-        json.dump(settings, f, indent=4)
-
-    embed = Embed(
-        title="Success!",
-        description=f"```New buy debounce: 0.1\nNew speed: 0.1\nturned off autosearch```",
-        color=Colour.from_rgb(255, 182, 193),
-    )
-    await ctx.send(embed=embed)
-
-    if await restart_main_py():
-        print("Succesfully restarted mewt after updating the buy debounce & speed.")
-    else:
-        print("Error while trying to restart mewt after updating the buy debounce & speed.")
-            
-# fast snipe 2 but with less letters so it makes it fast command
-@bot.command(name="fs2")
-@is_owner()
-async def fs2(ctx):
-
-    with open("settings.json", "r") as f:
-        settings = json.load(f)
-
-    settings["MISC"]["BUY_DEBOUNCE"] = 0.1
-    settings['MISC']['WATCHER']['SCAN_SPEED'] = 0.1 
-    settings['MISC']['AUTOSEARCH']['ENABLE'] = False
-  
-    with open("settings.json", "w") as f:
-        json.dump(settings, f, indent=4)
-
-    embed = Embed(
-        title="Success!",
-        description=f"```New buy debounce: 0.1\nNew speed: 0.1\nturned off autosearch```",
-        color=Colour.from_rgb(255, 182, 193),
-    )
-    await ctx.send(embed=embed)
-
-    if await restart_main_py():
-        print("Succesfully restarted mewt after updating the buy debounce & speed.")
-    else:
-        print("Error while trying to restart mewt after updating the buy debounce & speed.")
-
 # normal snipe command
 @bot.command(name="normal_snipe")
 @is_owner()
